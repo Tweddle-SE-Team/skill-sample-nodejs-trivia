@@ -7,9 +7,12 @@ var GAME_STATES = {
   TRIVIA: '_TRIVIAMODE', // Asking trivia questions.
   START: '_STARTMODE', // Entry point, start the game.
   HELP: '_HELPMODE', // The user is asking for help.
-  START_SESSION: '_START_SESSIONMODE' // Entry point, start the session.
+  START_SESSION: '_START_SESSIONMODE', // Entry point, start the session.
+  DIAGNOSTICS: '_DIAGNOSTICS_MODE' // Entry point, start the session.
 };
 var questions = require('./questions');
+var sessions = require('./sessions');
+
 
 /**
  * When editing your questions pay attention to your punctuation. Make sure you use question marks or periods.
@@ -90,11 +93,21 @@ var newSessionHandlers = {
 
 var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
   'StartSession': function(newGame) {
-    var speechOutput = newGame ? this.t('NEW_GAME_MESSAGE', this.t('GAME_NAME')) + this.t('WELCOME_MESSAGE', GAME_LENGTH.toString()) : '';
+    // var speechOutput = newGame ? this.t('NEW_GAME_MESSAGE', this.t('GAME_NAME')) + this.t('WELCOME_MESSAGE', GAME_LENGTH.toString()) : '';
 
-    this.emit(':askWithCard', 'You are about to start a new session.');
+    var question = sessions.start,
+      label = 'You are about to start a new session.' + question.label;
+
+
+    Object.assign(this.attributes, {
+      'currentNode': 'start',
+    });
+    this.handler.state = GAME_STATES.DIAGNOSTICS;
+    this.emit(':askWithCard', label);
   }
 });
+
+var diagnosticHandler = {};
 
 var startStateHandlers = Alexa.CreateStateHandler(GAME_STATES.START, {
   'StartGame': function(newGame) {
