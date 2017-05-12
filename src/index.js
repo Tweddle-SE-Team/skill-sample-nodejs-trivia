@@ -63,7 +63,7 @@ exports.handler = function(event, context, callback) {
   alexa.appId = APP_ID;
   // To enable string internationalization (i18n) features, set a resources object.
   alexa.resources = languageString;
-  alexa.registerHandlers(newSessionHandlers, startSessionHandler, startStateHandlers, triviaStateHandlers, helpStateHandlers);
+  alexa.registerHandlers(newSessionHandlers, startSessionHandler, diagnosticHandler, startStateHandlers, triviaStateHandlers, helpStateHandlers);
   alexa.execute();
 };
 
