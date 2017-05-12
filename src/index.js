@@ -136,7 +136,7 @@ function handleAnswer(handleEntry) {
     label += nextQuestion.label;
 
     Object.assign(self.attributes, {
-      'currentNode': 'start',
+      'currentNode': match.next,
     });
 
   } else {
