@@ -6,7 +6,8 @@ var GAME_LENGTH = 5; // The number of questions per trivia game.
 var GAME_STATES = {
   TRIVIA: '_TRIVIAMODE', // Asking trivia questions.
   START: '_STARTMODE', // Entry point, start the game.
-  HELP: '_HELPMODE' // The user is asking for help.
+  HELP: '_HELPMODE', // The user is asking for help.
+  START_SESSION: '_START_SESSIONMODE' // Entry point, start the session.
 };
 var questions = require('./questions');
 
@@ -59,7 +60,7 @@ exports.handler = function(event, context, callback) {
   alexa.appId = APP_ID;
   // To enable string internationalization (i18n) features, set a resources object.
   alexa.resources = languageString;
-  alexa.registerHandlers(newSessionHandlers, startStateHandlers, triviaStateHandlers, helpStateHandlers);
+  alexa.registerHandlers(newSessionHandlers, startSessionHandler, startStateHandlers, triviaStateHandlers, helpStateHandlers);
   alexa.execute();
 };
 
@@ -72,6 +73,10 @@ var newSessionHandlers = {
     this.handler.state = GAME_STATES.START;
     this.emitWithState('StartGame', true);
   },
+  'NewSessionIntent': function() {
+    this.handler.state = GAME_STATES.START_SESSION;
+    this.emitWithState('StartSession', true);
+  },
   'AMAZON.HelpIntent': function() {
     this.handler.state = GAME_STATES.HELP;
     this.emitWithState('helpTheUser', true);
@@ -81,6 +86,46 @@ var newSessionHandlers = {
     this.emit(':ask', speechOutput, speechOutput);
   }
 };
+
+
+var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
+  'StartSession': function(newGame) {
+    var speechOutput = newGame ? this.t('NEW_GAME_MESSAGE', this.t('GAME_NAME')) + this.t('WELCOME_MESSAGE', GAME_LENGTH.toString()) : '';
+    // Select GAME_LENGTH questions for the game
+    var translatedQuestions = this.t('QUESTIONS');
+    var gameQuestions = populateGameQuestions(translatedQuestions);
+    // Generate a random index for the correct answer, from 0 to 3
+    var correctAnswerIndex = Math.floor(Math.random() * (ANSWER_COUNT));
+    // Select and shuffle the answers for each question
+    var roundAnswers = populateRoundAnswers(gameQuestions, 0, correctAnswerIndex, translatedQuestions);
+    var currentQuestionIndex = 0;
+    var spokenQuestion = Object.keys(translatedQuestions[gameQuestions[currentQuestionIndex]])[0];
+    var repromptText = this.t('TELL_QUESTION_MESSAGE', '1', spokenQuestion);
+
+    // for (var i = 0; i < ANSWER_COUNT; i++) {
+    //   repromptText += (i + 1).toString() + '. ' + roundAnswers[i] + '. ';
+    // }
+    _.each(_.take(roundAnswers, ANSWER_COUNT), function(item, index) {
+      repromptText += (index + 1).toString() + '. ' + item + '. ';
+    });
+
+    speechOutput += repromptText;
+
+    Object.assign(this.attributes, {
+      'speechOutput': repromptText,
+      'repromptText': repromptText,
+      'currentQuestionIndex': currentQuestionIndex,
+      'correctAnswerIndex': correctAnswerIndex + 1,
+      'questions': gameQuestions,
+      'score': 0,
+      'correctAnswerText': translatedQuestions[gameQuestions[currentQuestionIndex]][Object.keys(translatedQuestions[gameQuestions[currentQuestionIndex]])[0]][0]
+    });
+
+    // Set the current state to trivia mode. The skill will now use handlers defined in triviaStateHandlers
+    this.handler.state = GAME_STATES.TRIVIA;
+    this.emit(':askWithCard', speechOutput, repromptText, this.t('GAME_NAME'), repromptText);
+  }
+});
 
 var startStateHandlers = Alexa.CreateStateHandler(GAME_STATES.START, {
   'StartGame': function(newGame) {
@@ -100,7 +145,7 @@ var startStateHandlers = Alexa.CreateStateHandler(GAME_STATES.START, {
     //   repromptText += (i + 1).toString() + '. ' + roundAnswers[i] + '. ';
     // }
     _.each(_.take(roundAnswers, ANSWER_COUNT), function(item, index) {
-      repromptText += [(index + 1), item].join('. ');
+      repromptText += (index + 1).toString() + '. ' + item + '. ';
     });
 
     speechOutput += repromptText;
