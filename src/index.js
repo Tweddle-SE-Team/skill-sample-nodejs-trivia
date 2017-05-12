@@ -294,6 +294,7 @@ function populateRoundAnswers(gameQuestionIndexes, correctAnswerIndex, correctAn
   var answers = [];
   var answersCopy = translatedQuestions[gameQuestionIndexes[correctAnswerIndex]][Object.keys(translatedQuestions[gameQuestionIndexes[correctAnswerIndex]])[0]].slice();
   var index = answersCopy.length;
+  var temp;
 
   if (index < ANSWER_COUNT) {
     throw new Error('Not enough answers for question.');
@@ -304,7 +305,7 @@ function populateRoundAnswers(gameQuestionIndexes, correctAnswerIndex, correctAn
     var rand = Math.floor(Math.random() * (index - 1)) + 1;
     index -= 1;
 
-    var temp = answersCopy[index];
+    temp = answersCopy[index];
     answersCopy[index] = answersCopy[rand];
     answersCopy[rand] = temp;
   }
