@@ -127,10 +127,10 @@ function handleAnswer(handleEntry) {
   var
     self = this,
     answer = getAnswer(self.event.request.intent),
-    currentQuestion = questions[self.attributes.currentNode],
+    currentNode = sessions[self.attributes.currentNode],
     label = 'Your answer was ' + answer + '. ',
-    match = _.find(currentQuestion.answers, { answer: answer }),
-    nextQuestion = match && questions[match.next];
+    match = _.find(currentNode.answers, { answer: answer }),
+    nextQuestion = match && sessions[match.next];
 
   if (nextQuestion) {
     label += nextQuestion.label;
