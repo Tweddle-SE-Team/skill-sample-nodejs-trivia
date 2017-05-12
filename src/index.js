@@ -109,22 +109,22 @@ var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
 
 var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
   'SessionAnswerIntent': function() {
-    handleAnswer.call(this);
+    handleAnswer.call(this, 'SessionAnswerIntent');
   },
   'AMAZON.YesIntent': function() {
-    handleAnswer.call(this);
+    handleAnswer.call(this, 'AMAZON');
   },
   'AMAZON.NoIntent': function() {
-    handleAnswer.call(this);
+    handleAnswer.call(this, 'AMAZON');
   },
   'Unhandled': function() {
-    handleAnswer.call(this);
+    handleAnswer.call(this, 'Unhandled');
   },
 });
 
-function handleAnswer() {
+function handleAnswer(handleEntry) {
   function getAnswer(intent) {
-    return _.get(intent, 'slots.Answer.value', 'Not provided');
+    return _.get(intent, 'slots.Answer.value', handleEntry);
   }
 
   var
