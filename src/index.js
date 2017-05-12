@@ -155,9 +155,7 @@ function handleAnswer(handleEntry) {
 
     if (_.isEmpty(nextQuestion.answers)) {
       this.handler.state = GAME_STATES.SESSION_OVER;
-      this.emitWithState('StartSession');
     }
-
 
     self.emit(':askWithCard', label);
 
