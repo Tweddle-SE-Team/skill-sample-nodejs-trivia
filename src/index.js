@@ -96,7 +96,7 @@ var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
     // var speechOutput = newGame ? this.t('NEW_GAME_MESSAGE', this.t('GAME_NAME')) + this.t('WELCOME_MESSAGE', GAME_LENGTH.toString()) : '';
 
     var question = sessions.start,
-      label = 'You are about to start a new session.' + question.label;
+      label = 'You are about to start a new session. Here we go. ' + question.label;
 
 
     Object.assign(this.attributes, {
@@ -107,7 +107,25 @@ var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
   }
 });
 
-var diagnosticHandler = {};
+var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
+  'SessionAnswerIntent': function() {
+    handleAnswer.call(this);
+  }
+});
+
+function handleAnswer() {
+  function getAnswer(intent) {
+    return _.get(intent, 'slots.Answer.value', 'Not provided');
+  }
+
+  var
+    answer = getAnswer(this.event.request.intent),
+    currentQuestion = questions[this.attributes.currentNode],
+    label = 'Your answer was ' + answer;
+
+  this.emit(':askWithCard', label);
+
+}
 
 var startStateHandlers = Alexa.CreateStateHandler(GAME_STATES.START, {
   'StartGame': function(newGame) {
