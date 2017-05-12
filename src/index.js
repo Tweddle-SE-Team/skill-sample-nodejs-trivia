@@ -117,6 +117,11 @@ var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
   'Unhandled': function() {
     handleAnswer.call(this, 'Unhandled');
   },
+  'AMAZON.StartOverIntent': function() {
+    this.handler.state = GAME_STATES.START_SESSION;
+    this.emitWithState('StartSession');
+  }
+
 });
 
 function handleAnswer(handleEntry) {
