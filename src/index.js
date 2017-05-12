@@ -1,6 +1,6 @@
 'use strict';
 
-
+var _ = require('lodash');
 var ANSWER_COUNT = 4; // The number of possible answers per trivia question.
 var GAME_LENGTH = 5; // The number of questions per trivia game.
 var GAME_STATES = {
@@ -96,9 +96,12 @@ var startStateHandlers = Alexa.CreateStateHandler(GAME_STATES.START, {
     var spokenQuestion = Object.keys(translatedQuestions[gameQuestions[currentQuestionIndex]])[0];
     var repromptText = this.t('TELL_QUESTION_MESSAGE', '1', spokenQuestion);
 
-    for (var i = 0; i < ANSWER_COUNT; i++) {
-      repromptText += (i + 1).toString() + '. ' + roundAnswers[i] + '. ';
-    }
+    // for (var i = 0; i < ANSWER_COUNT; i++) {
+    //   repromptText += (i + 1).toString() + '. ' + roundAnswers[i] + '. ';
+    // }
+    _.each(_.take(roundAnswers, ANSWER_COUNT), function(item, index) {
+      repromptText += [(index + 1), item].join('. ');
+    });
 
     speechOutput += repromptText;
 
