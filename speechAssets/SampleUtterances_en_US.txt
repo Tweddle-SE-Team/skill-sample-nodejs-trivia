@@ -2,12 +2,8 @@ AnswerIntent the answer is {Answer}
 AnswerIntent my answer is {Answer}
 AnswerIntent is it {Answer}
 AnswerIntent {Answer} is my answer
-DisableAnswerIntent {Answer}
 
-DisableAMAZON.StartOverIntent start game
 AMAZON.StartOverIntent new game
-DisableAMAZON.StartOverIntent start
-DisableAMAZON.StartOverIntent start new game
 
 DontKnowIntent i don't know
 DontKnowIntent don't know
