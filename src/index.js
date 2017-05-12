@@ -8,6 +8,7 @@ var GAME_STATES = {
   START: '_STARTMODE', // Entry point, start the game.
   HELP: '_HELPMODE', // The user is asking for help.
   START_SESSION: '_START_SESSIONMODE', // Entry point, start the session.
+  SESSION_OVER: '_SESSION_OVERMODE', // Entry point, start the session.
   DIAGNOSTICS: '_DIAGNOSTICS_MODE' // Entry point, start the session.
 };
 var questions = require('./questions');
@@ -63,7 +64,7 @@ exports.handler = function(event, context, callback) {
   alexa.appId = APP_ID;
   // To enable string internationalization (i18n) features, set a resources object.
   alexa.resources = languageString;
-  alexa.registerHandlers(newSessionHandlers, startSessionHandler, diagnosticHandler, startStateHandlers, triviaStateHandlers, helpStateHandlers);
+  alexa.registerHandlers(newSessionHandlers, startSessionHandler, diagnosticHandler, startStateHandlers, triviaStateHandlers, helpStateHandlers, sessionOverHandler);
   alexa.execute();
 };
 
@@ -107,6 +108,15 @@ var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
   }
 });
 
+var sessionOverHandler = Alexa.CreateStateHandler(GAME_STATES.SESSION_OVER, {
+  'Unhandled': function() {
+    this.emit(':askWithCard', 'You reached the end of the session.');
+  },
+  'AMAZON.StartOverIntent': function() {
+    this.handler.state = GAME_STATES.START_SESSION;
+    this.emitWithState('StartSession');
+  }
+});
 var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
   'AMAZON.YesIntent': function() {
     handleAnswer.call(this, 'yes');
@@ -121,7 +131,6 @@ var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
     this.handler.state = GAME_STATES.START_SESSION;
     this.emitWithState('StartSession');
   }
-
 });
 
 function handleAnswer(handleEntry) {
@@ -143,12 +152,14 @@ function handleAnswer(handleEntry) {
     Object.assign(self.attributes, {
       'currentNode': match.next,
     });
+    self.emit(':askWithCard', label);
 
   } else {
-    label += 'This is the end of the session';
+    this.handler.state = GAME_STATES.SESSION_OVER;
+    this.emitWithState('StartSession');
+
   }
 
-  self.emit(':askWithCard', label);
 
 }
 
