@@ -70,16 +70,16 @@ exports.handler = function(event, context, callback) {
 
 var newSessionHandlers = {
   'LaunchRequest': function() {
-    this.handler.state = GAME_STATES.START;
-    this.emitWithState('StartGame', true);
+    this.handler.state = GAME_STATES.START_SESSION;
+    this.emitWithState('StartSession');
   },
   'AMAZON.StartOverIntent': function() {
-    this.handler.state = GAME_STATES.START;
-    this.emitWithState('StartGame', true);
+    this.handler.state = GAME_STATES.START_SESSION;
+    this.emitWithState('StartSession');
   },
   'NewSessionIntent': function() {
     this.handler.state = GAME_STATES.START_SESSION;
-    this.emitWithState('StartSession', true);
+    this.emitWithState('StartSession');
   },
   'AMAZON.HelpIntent': function() {
     this.handler.state = GAME_STATES.HELP;
@@ -152,12 +152,15 @@ function handleAnswer(handleEntry) {
     Object.assign(self.attributes, {
       'currentNode': match.next,
     });
-    self.emit(':askWithCard', label);
 
     if (_.isEmpty(nextQuestion.answers)) {
       this.handler.state = GAME_STATES.SESSION_OVER;
       this.emitWithState('StartSession');
     }
+
+
+    self.emit(':askWithCard', label);
+
   } else {
     this.handler.state = GAME_STATES.SESSION_OVER;
     this.emitWithState('StartSession');
