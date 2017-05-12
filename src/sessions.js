@@ -3,15 +3,15 @@ module.exports = {
   'start': {
     label: 'PERFORM THE PRE-DIAGNOSTIC TROUBLESHOOTING PROCEDURE. Was the problem found and repaired?',
     answers: [
-      { 'yes': 'question2' },
-      { 'no': 'solution.1' },
+      { answer: 'yes', next: 'question2' },
+      { answer: 'no', next: 'solution.1' },
     ]
   },
   'question2': {
     label: 'CHECK THE IAT SENSOR FOR AN INTERNAL SHORT. Did P0113 set with the IAT Sensor disconnected?',
     answers: [
-      { 'yes': 'solution2' },
-      { 'no': 'nosolution' },
+      { answer: 'yes', next: 'solution2' },
+      { answer: 'no', next: 'nosolution' },
     ]
   },
   'solution.1': {

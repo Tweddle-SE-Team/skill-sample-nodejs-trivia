@@ -108,14 +108,11 @@ var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
 });
 
 var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
-  'SessionAnswerIntent': function() {
-    handleAnswer.call(this, 'SessionAnswerIntent');
-  },
   'AMAZON.YesIntent': function() {
-    handleAnswer.call(this, 'AMAZON');
+    handleAnswer.call(this, 'yes');
   },
   'AMAZON.NoIntent': function() {
-    handleAnswer.call(this, 'AMAZON');
+    handleAnswer.call(this, 'no');
   },
   'Unhandled': function() {
     handleAnswer.call(this, 'Unhandled');
@@ -128,11 +125,25 @@ function handleAnswer(handleEntry) {
   }
 
   var
-    answer = getAnswer(this.event.request.intent),
-    currentQuestion = questions[this.attributes.currentNode],
-    label = 'Your answer was ' + answer;
+    self = this,
+    answer = getAnswer(self.event.request.intent),
+    currentQuestion = questions[self.attributes.currentNode],
+    label = 'Your answer was ' + answer + '. ',
+    match = _.find(currentQuestion.answers, { answer: answer }),
+    nextQuestion = match && questions[match.next];
 
-  this.emit(':askWithCard', label);
+  if (nextQuestion) {
+    label += nextQuestion.label;
+
+    Object.assign(self.attributes, {
+      'currentNode': 'start',
+    });
+
+  } else {
+    label += 'This is the end of the session';
+  }
+
+  self.emit(':askWithCard', label);
 
 }
 
