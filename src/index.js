@@ -110,7 +110,16 @@ var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
 var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
   'SessionAnswerIntent': function() {
     handleAnswer.call(this);
-  }
+  },
+  'AMAZON.YesIntent': function() {
+    handleAnswer.call(this);
+  },
+  'AMAZON.NoIntent': function() {
+    handleAnswer.call(this);
+  },
+  'Unhandled': function() {
+    handleAnswer.call(this);
+  },
 });
 
 function handleAnswer() {
