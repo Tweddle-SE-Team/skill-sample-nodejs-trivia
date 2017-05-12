@@ -154,10 +154,13 @@ function handleAnswer(handleEntry) {
     });
     self.emit(':askWithCard', label);
 
+    if (_.isEmpty(nextQuestion.answers)) {
+      this.handler.state = GAME_STATES.SESSION_OVER;
+      this.emitWithState('StartSession');
+    }
   } else {
     this.handler.state = GAME_STATES.SESSION_OVER;
     this.emitWithState('StartSession');
-
   }
 
 
