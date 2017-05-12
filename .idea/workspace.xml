@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cfdce2a-279a-47a5-aec8-c00edd0a414d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speechAssets/SampleUtterances_en_US.txt" afterPath="$PROJECT_DIR$/speechAssets/SampleUtterances_en_US.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/prep.sh" afterPath="$PROJECT_DIR$/src/prep.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,18 +22,63 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="466">
-                  <caret line="94" column="71" lean-forward="true" selection-start-line="94" selection-start-column="71" selection-end-line="94" selection-end-column="71" />
-                  <folding />
+                <state relative-caret-position="788">
+                  <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+                  <folding>
+                    <marker date="1494613364000" expanded="true" signature="202:402" ph="{&quot;TRIVIA&quot;: '_TRIVIAMODE'...}" />
+                    <marker date="1494613364000" expanded="true" signature="4948:6806" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="4983:6804" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="5807:5936" ph="//..." />
+                    <marker date="1494613364000" expanded="true" signature="6006:6080" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="6154:6550" ph="{&quot;speechOutput&quot;: repromptText...}" />
+                    <marker date="1494613364000" expanded="true" signature="6881:7988" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="6912:6956" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="6989:7032" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="7073:7166" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="7204:7298" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="7334:7428" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="7464:7610" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="7648:7703" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="7731:7863" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="7901:7986" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="8059:9862" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="8096:8407" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="8448:8541" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="8579:8735" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="8771:8927" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="8962:9252" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="9040:9143" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="9149:9248" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="9286:9374" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="9410:9513" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="9551:9606" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="9634:9739" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="9777:9860" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="9903:12549" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="10519:10605" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="10611:10808" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="10634:10702" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="10962:11192" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="11198:12547" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="11743:11823" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="12039:12446" ph="{&quot;speechOutput&quot;: repromptText...}" />
+                    <marker date="1494613364000" expanded="true" signature="12603:13244" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="12723:12773" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="12830:12858" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="13002:13217" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="13246:13486" ph="/** Get the answers for a given question, and place the correct answer at the spot marked by the ...*/" />
+                    <marker date="1494613364000" expanded="true" signature="13873:13935" ph="{...}" />
+                    <marker date="1494613364000" expanded="true" signature="14067:14254" ph="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SampleUtterances_en_US.txt" pinned="false" current-in-tab="true">
+          <file leaf-file-name="SampleUtterances_en_US.txt" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_en_US.txt">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="330">
-                  <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                  <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -44,8 +87,8 @@
           <file leaf-file-name="slots.txt" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/speechAssets/slots.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -91,11 +134,29 @@
           <file leaf-file-name="questions.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/questions.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-6510">
-                  <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-                  <folding>
-                    <marker date="1494604833000" expanded="true" signature="32:36" ph="{...}" />
-                  </folding>
+                <state relative-caret-position="60">
+                  <caret line="4" column="98" lean-forward="false" selection-start-line="4" selection-start-column="98" selection-end-line="4" selection-end-column="98" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="sessions.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/sessions.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="prep.sh" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/prep.sh">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -108,7 +169,7 @@
             <entry file="file://$PROJECT_DIR$/speechAssets/slots.txt">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="135">
-                  <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+                  <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -122,7 +183,6 @@
     <findStrings>
       <find>answerinten</find>
       <find>var</find>
-      <find>var</find>
       <find>handler</find>
       <find>DisableAnswerIntent</find>
       <find>disable</find>
@@ -131,7 +191,6 @@
     <replaceStrings>
       <replace>let</replace>
       <replace>disableAmazon</replace>
-      <replace>let</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -145,6 +204,7 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/speechAssets/SampleUtterances_en_US.txt" />
         <option value="$PROJECT_DIR$/speechAssets/slots.txt" />
+        <option value="$PROJECT_DIR$/src/prep.sh" />
       </list>
     </option>
   </component>
@@ -367,7 +427,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7103000" />
+    <option name="totallyTimeSpent" value="7115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="-517" width="2560" height="1417" extended-state="6" />
@@ -415,126 +475,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_de_DE.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speechAssets/IntentSchema.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/questions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="565">
           <caret line="712" column="101" lean-forward="false" selection-start-line="712" selection-start-column="101" selection-end-line="712" selection-end-column="101" />
-          <folding>
-            <marker date="1494604833000" expanded="true" signature="32:36" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index-old.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding>
-              <marker date="1494596677000" expanded="true" signature="5980:6548" ph="{...}" />
-              <marker date="1494596677000" expanded="true" signature="5995:6546" ph="[...]" />
-              <marker date="1494596677000" expanded="true" signature="6001:6147" ph="{&quot;intent&quot;: &quot;AnswerIntent&quot;...}" />
-              <marker date="1494596677000" expanded="true" signature="6050:6141" ph="[...]" />
-              <marker date="1494596677000" expanded="true" signature="6060:6133" ph="{&quot;name&quot;: &quot;Answer&quot;...}" />
-              <marker date="1494596677000" expanded="true" signature="6153:6193" ph="{&quot;intent&quot;: &quot;DontKnowIntent&quot;...}" />
-              <marker date="1494596677000" expanded="true" signature="6199:6247" ph="{&quot;intent&quot;: &quot;AMAZON.StartOverIntent&quot;...}" />
-              <marker date="1494596677000" expanded="true" signature="6253:6298" ph="{&quot;intent&quot;: &quot;AMAZON.RepeatIntent&quot;...}" />
-              <marker date="1494596677000" expanded="true" signature="6304:6347" ph="{&quot;intent&quot;: &quot;AMAZON.HelpIntent&quot;...}" />
-              <marker date="1494596677000" expanded="true" signature="6353:6395" ph="{&quot;intent&quot;: &quot;AMAZON.YesIntent&quot;...}" />
-              <marker date="1494596677000" expanded="true" signature="6401:6442" ph="{&quot;intent&quot;: &quot;AMAZON.NoIntent&quot;...}" />
-              <marker date="1494596677000" expanded="true" signature="6448:6491" ph="{&quot;intent&quot;: &quot;AMAZON.StopIntent&quot;...}" />
-              <marker date="1494596677000" expanded="true" signature="6497:6542" ph="{&quot;intent&quot;: &quot;AMAZON.CancelIntent&quot;...}" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_en_US.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/prep.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="305" column="12" lean-forward="false" selection-start-line="305" selection-start-column="8" selection-end-line="305" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_de_DE.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speechAssets/IntentSchema.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/questions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="712" column="101" lean-forward="false" selection-start-line="712" selection-start-column="101" selection-end-line="712" selection-end-column="101" />
-          <folding>
-            <marker date="1494604833000" expanded="true" signature="32:36" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -599,6 +544,200 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="454">
           <caret line="311" column="20" lean-forward="true" selection-start-line="311" selection-start-column="20" selection-end-line="311" selection-end-column="20" />
+          <folding>
+            <marker date="1494613364000" expanded="true" signature="202:402" ph="{&quot;TRIVIA&quot;: '_TRIVIAMODE'...}" />
+            <marker date="1494613364000" expanded="true" signature="4948:6806" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="4983:6804" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="5807:5936" ph="//..." />
+            <marker date="1494613364000" expanded="true" signature="6006:6080" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6154:6550" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="6881:7988" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6912:6956" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6989:7032" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7073:7166" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7204:7298" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7334:7428" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7464:7610" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7648:7703" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7731:7863" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7901:7986" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8059:9862" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8096:8407" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8448:8541" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8579:8735" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8771:8927" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8962:9252" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9040:9143" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9149:9248" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9286:9374" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9410:9513" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9551:9606" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9634:9739" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9777:9860" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9903:12549" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10519:10605" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10611:10808" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10634:10702" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10962:11192" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11198:12547" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11743:11823" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12039:12446" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="12603:13244" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12723:12773" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12830:12858" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13002:13217" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13246:13486" ph="/** Get the answers for a given question, and place the correct answer at the spot marked by the ...*/" />
+            <marker date="1494613364000" expanded="true" signature="13873:13935" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="14067:14254" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_de_DE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/IntentSchema.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index-old.js" />
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding>
+              <marker date="1494596677000" expanded="true" signature="5980:6548" ph="{...}" />
+              <marker date="1494596677000" expanded="true" signature="5995:6546" ph="[...]" />
+              <marker date="1494596677000" expanded="true" signature="6001:6147" ph="{&quot;intent&quot;: &quot;AnswerIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6050:6141" ph="[...]" />
+              <marker date="1494596677000" expanded="true" signature="6060:6133" ph="{&quot;name&quot;: &quot;Answer&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6153:6193" ph="{&quot;intent&quot;: &quot;DontKnowIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6199:6247" ph="{&quot;intent&quot;: &quot;AMAZON.StartOverIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6253:6298" ph="{&quot;intent&quot;: &quot;AMAZON.RepeatIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6304:6347" ph="{&quot;intent&quot;: &quot;AMAZON.HelpIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6353:6395" ph="{&quot;intent&quot;: &quot;AMAZON.YesIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6401:6442" ph="{&quot;intent&quot;: &quot;AMAZON.NoIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6448:6491" ph="{&quot;intent&quot;: &quot;AMAZON.StopIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6497:6542" ph="{&quot;intent&quot;: &quot;AMAZON.CancelIntent&quot;...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/slots.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" lean-forward="true" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="788">
+          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding>
+            <marker date="1494613364000" expanded="true" signature="202:402" ph="{&quot;TRIVIA&quot;: '_TRIVIAMODE'...}" />
+            <marker date="1494613364000" expanded="true" signature="4948:6806" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="4983:6804" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="5807:5936" ph="//..." />
+            <marker date="1494613364000" expanded="true" signature="6006:6080" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6154:6550" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="6881:7988" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6912:6956" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6989:7032" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7073:7166" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7204:7298" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7334:7428" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7464:7610" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7648:7703" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7731:7863" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7901:7986" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8059:9862" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8096:8407" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8448:8541" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8579:8735" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8771:8927" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8962:9252" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9040:9143" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9149:9248" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9286:9374" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9410:9513" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9551:9606" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9634:9739" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9777:9860" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9903:12549" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10519:10605" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10611:10808" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10634:10702" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10962:11192" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11198:12547" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11743:11823" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12039:12446" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="12603:13244" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12723:12773" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12830:12858" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13002:13217" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13246:13486" ph="/** Get the answers for a given question, and place the correct answer at the spot marked by the ...*/" />
+            <marker date="1494613364000" expanded="true" signature="13873:13935" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="14067:14254" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_en_US.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/questions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="98" lean-forward="false" selection-start-line="4" selection-start-column="98" selection-end-line="4" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sessions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/prep.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -619,11 +758,274 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/questions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6510">
-          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state relative-caret-position="565">
+          <caret line="712" column="101" lean-forward="false" selection-start-line="712" selection-start-column="101" selection-end-line="712" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index-old.js" />
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding>
+              <marker date="1494596677000" expanded="true" signature="5980:6548" ph="{...}" />
+              <marker date="1494596677000" expanded="true" signature="5995:6546" ph="[...]" />
+              <marker date="1494596677000" expanded="true" signature="6001:6147" ph="{&quot;intent&quot;: &quot;AnswerIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6050:6141" ph="[...]" />
+              <marker date="1494596677000" expanded="true" signature="6060:6133" ph="{&quot;name&quot;: &quot;Answer&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6153:6193" ph="{&quot;intent&quot;: &quot;DontKnowIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6199:6247" ph="{&quot;intent&quot;: &quot;AMAZON.StartOverIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6253:6298" ph="{&quot;intent&quot;: &quot;AMAZON.RepeatIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6304:6347" ph="{&quot;intent&quot;: &quot;AMAZON.HelpIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6353:6395" ph="{&quot;intent&quot;: &quot;AMAZON.YesIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6401:6442" ph="{&quot;intent&quot;: &quot;AMAZON.NoIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6448:6491" ph="{&quot;intent&quot;: &quot;AMAZON.StopIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6497:6542" ph="{&quot;intent&quot;: &quot;AMAZON.CancelIntent&quot;...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_en_US.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/prep.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="305" column="12" lean-forward="false" selection-start-line="305" selection-start-column="8" selection-end-line="305" selection-end-column="12" />
           <folding>
-            <marker date="1494604833000" expanded="true" signature="32:36" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="202:402" ph="{&quot;TRIVIA&quot;: '_TRIVIAMODE'...}" />
+            <marker date="1494613364000" expanded="true" signature="4948:6806" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="4983:6804" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="5807:5936" ph="//..." />
+            <marker date="1494613364000" expanded="true" signature="6006:6080" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6154:6550" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="6881:7988" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6912:6956" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6989:7032" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7073:7166" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7204:7298" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7334:7428" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7464:7610" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7648:7703" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7731:7863" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7901:7986" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8059:9862" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8096:8407" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8448:8541" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8579:8735" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8771:8927" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8962:9252" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9040:9143" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9149:9248" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9286:9374" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9410:9513" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9551:9606" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9634:9739" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9777:9860" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9903:12549" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10519:10605" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10611:10808" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10634:10702" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10962:11192" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11198:12547" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11743:11823" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12039:12446" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="12603:13244" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12723:12773" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12830:12858" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13002:13217" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13246:13486" ph="/** Get the answers for a given question, and place the correct answer at the spot marked by the ...*/" />
+            <marker date="1494613364000" expanded="true" signature="13873:13935" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="14067:14254" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_de_DE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/IntentSchema.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/questions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="712" column="101" lean-forward="false" selection-start-line="712" selection-start-column="101" selection-end-line="712" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index-old.js" />
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding>
+              <marker date="1494596677000" expanded="true" signature="5980:6548" ph="{...}" />
+              <marker date="1494596677000" expanded="true" signature="5995:6546" ph="[...]" />
+              <marker date="1494596677000" expanded="true" signature="6001:6147" ph="{&quot;intent&quot;: &quot;AnswerIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6050:6141" ph="[...]" />
+              <marker date="1494596677000" expanded="true" signature="6060:6133" ph="{&quot;name&quot;: &quot;Answer&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6153:6193" ph="{&quot;intent&quot;: &quot;DontKnowIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6199:6247" ph="{&quot;intent&quot;: &quot;AMAZON.StartOverIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6253:6298" ph="{&quot;intent&quot;: &quot;AMAZON.RepeatIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6304:6347" ph="{&quot;intent&quot;: &quot;AMAZON.HelpIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6353:6395" ph="{&quot;intent&quot;: &quot;AMAZON.YesIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6401:6442" ph="{&quot;intent&quot;: &quot;AMAZON.NoIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6448:6491" ph="{&quot;intent&quot;: &quot;AMAZON.StopIntent&quot;...}" />
+              <marker date="1494596677000" expanded="true" signature="6497:6542" ph="{&quot;intent&quot;: &quot;AMAZON.CancelIntent&quot;...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_en_US.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/prep.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="311" column="20" lean-forward="true" selection-start-line="311" selection-start-column="20" selection-end-line="311" selection-end-column="20" />
+          <folding>
+            <marker date="1494613364000" expanded="true" signature="202:402" ph="{&quot;TRIVIA&quot;: '_TRIVIAMODE'...}" />
+            <marker date="1494613364000" expanded="true" signature="4948:6806" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="4983:6804" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="5807:5936" ph="//..." />
+            <marker date="1494613364000" expanded="true" signature="6006:6080" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6154:6550" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="6881:7988" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6912:6956" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6989:7032" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7073:7166" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7204:7298" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7334:7428" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7464:7610" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7648:7703" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7731:7863" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7901:7986" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8059:9862" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8096:8407" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8448:8541" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8579:8735" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8771:8927" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8962:9252" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9040:9143" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9149:9248" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9286:9374" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9410:9513" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9551:9606" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9634:9739" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9777:9860" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9903:12549" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10519:10605" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10611:10808" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10634:10702" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10962:11192" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11198:12547" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11743:11823" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12039:12446" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="12603:13244" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12723:12773" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12830:12858" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13002:13217" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13246:13486" ph="/** Get the answers for a given question, and place the correct answer at the spot marked by the ...*/" />
+            <marker date="1494613364000" expanded="true" signature="13873:13935" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="14067:14254" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_de_DE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechAssets/IntentSchema.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/questions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="98" lean-forward="false" selection-start-line="4" selection-start-column="98" selection-end-line="4" selection-end-column="98" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -665,13 +1067,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/speechAssets/slots.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="0">
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -686,16 +1089,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="94" column="71" lean-forward="true" selection-start-line="94" selection-start-column="71" selection-end-line="94" selection-end-column="71" />
-          <folding />
+        <state relative-caret-position="788">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding>
+            <marker date="1494613364000" expanded="true" signature="202:402" ph="{&quot;TRIVIA&quot;: '_TRIVIAMODE'...}" />
+            <marker date="1494613364000" expanded="true" signature="4948:6806" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="4983:6804" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="5807:5936" ph="//..." />
+            <marker date="1494613364000" expanded="true" signature="6006:6080" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6154:6550" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="6881:7988" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6912:6956" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="6989:7032" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7073:7166" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7204:7298" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7334:7428" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7464:7610" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7648:7703" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7731:7863" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="7901:7986" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8059:9862" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8096:8407" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8448:8541" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8579:8735" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8771:8927" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="8962:9252" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9040:9143" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9149:9248" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9286:9374" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9410:9513" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9551:9606" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9634:9739" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9777:9860" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="9903:12549" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10519:10605" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10611:10808" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10634:10702" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="10962:11192" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11198:12547" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="11743:11823" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12039:12446" ph="{&quot;speechOutput&quot;: repromptText...}" />
+            <marker date="1494613364000" expanded="true" signature="12603:13244" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12723:12773" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="12830:12858" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13002:13217" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="13246:13486" ph="/** Get the answers for a given question, and place the correct answer at the spot marked by the ...*/" />
+            <marker date="1494613364000" expanded="true" signature="13873:13935" ph="{...}" />
+            <marker date="1494613364000" expanded="true" signature="14067:14254" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/speechAssets/SampleUtterances_en_US.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
