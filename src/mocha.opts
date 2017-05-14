@@ -1,0 +1,7 @@
+--recursive
+--timeout 5000
+--require test/setup
+--require should
+--require chai
+--require babel-polyfill 
+--compilers js:babel-register

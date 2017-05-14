@@ -99,7 +99,6 @@ var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
     var question = sessions.start,
       label = 'You are about to start a new session. Here we go. ' + question.label;
 
-
     Object.assign(this.attributes, {
       'currentNode': 'start',
     });
@@ -119,13 +118,13 @@ var sessionOverHandler = Alexa.CreateStateHandler(GAME_STATES.SESSION_OVER, {
 });
 var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
   'AMAZON.YesIntent': function() {
-    handleAnswer.call(this, 'yes');
+    processDiagnosticHandler(this)('yes');
   },
   'AMAZON.NoIntent': function() {
-    handleAnswer.call(this, 'no');
+    processDiagnosticHandler(this)('no');
   },
   'Unhandled': function() {
-    handleAnswer.call(this, 'Unhandled');
+    processDiagnosticHandler(this)('unknown');
   },
   'AMAZON.StartOverIntent': function() {
     this.handler.state = GAME_STATES.START_SESSION;
@@ -133,37 +132,40 @@ var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
   }
 });
 
-function handleAnswer(handleEntry) {
-  function getAnswer(intent) {
-    return _.get(intent, 'slots.Answer.value', handleEntry);
-  }
+function processDiagnosticHandler(self) {
+  return function(defaultValue) {
 
-  var
-    self = this,
-    answer = getAnswer(self.event.request.intent),
-    currentNode = sessions[self.attributes.currentNode],
-    label = 'Your answer was ' + answer + '. ',
-    match = _.find(currentNode.answers, { answer: answer }),
-    nextQuestion = match && sessions[match.next];
-
-  if (nextQuestion) {
-    label += nextQuestion.label;
-
-    Object.assign(self.attributes, {
-      'currentNode': match.next,
-    });
-
-    if (_.isEmpty(nextQuestion.answers)) {
-      this.handler.state = GAME_STATES.SESSION_OVER;
+    function getAnswer(intent) {
+      //Todo Answer value must be a different type for this to work
+      return _.get(intent, 'slots.Answer.value', defaultValue);
     }
 
-    self.emit(':askWithCard', label);
+    var
+      answer = getAnswer(self.event.request.intent),
+      currentNode = sessions[self.attributes.currentNode],
+      label = 'Your answer was ' + answer + '. ',
+      match = _.find(currentNode.answers, { answer: answer }),
+      nextQuestion = match && sessions[match.next];
 
-  } else {
-    this.handler.state = GAME_STATES.SESSION_OVER;
-    this.emitWithState('StartSession');
-  }
+    if (nextQuestion) {
+      label += nextQuestion.label;
 
+      Object.assign(self.attributes, {
+        'currentNode': match.next,
+      });
+
+      if (_.isEmpty(nextQuestion.answers)) {
+        this.handler.state = GAME_STATES.SESSION_OVER;
+      }
+
+      self.emit(':askWithCard', label);
+
+    } else {
+      this.handler.state = GAME_STATES.SESSION_OVER;
+      this.emitWithState('StartSession');
+    }
+
+  };
 
 }
 
