@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"fun",
+				"function"
+			],
+			[
+				"START",
+				"START_SESSION"
+			],
+			[
 				"exclu",
 				"excludeMismatchingRelatedContentBySalesCodes\t(related-content.js)"
 			],
@@ -38,10 +46,6 @@
 			[
 				"toLowe",
 				"toLowerCase\t(diagnostic-session.js)"
-			],
-			[
-				"fun",
-				"function\t(index.js)"
 			],
 			[
 				"a",
@@ -507,6 +511,70 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/index.js",
+			"settings":
+			{
+				"buffer_size": 16308,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/package.json",
+			"settings":
+			{
+				"buffer_size": 646,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/test/index_tests.js",
+			"settings":
+			{
+				"buffer_size": 202,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/mocha.opts",
+			"settings":
+			{
+				"buffer_size": 136,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "speechAssets/SampleUtterances_en_US.txt",
+			"settings":
+			{
+				"buffer_size": 515,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/.jshintrc",
+			"settings":
+			{
+				"buffer_size": 693,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "'use strict';\nmodule.exports = {\n  'start': {\n    label: 'PERFORM THE PRE-DIAGNOSTIC TROUBLESHOOTING PROCEDURE. Was the problem found and repaired?',\n    answers: [\n      { answer: 'walk me through', next: 'procedure1' },\n      { answer: 'yes', next: 'question2' },\n      { answer: 'no', next: 'solution.1' },\n    ]\n  },\n\n  'procedure1': {\n    label: 'Step1. Disconnect all PCM harness connectors.',\n    answers: [\n      { answer: 'next', next: 'procedure1.step2' },\n      { answer: 'again', next: 'solution.1' },\n      { answer: 'back to question', next: 'solution.1' },\n    ]\n  },\n  'procedure1.step2': {\n    label: 'Step 2. Disconnect all related in-line harness connections (if equipped).',\n    answers: [\n      { answer: 'next', next: 'procedure1.step3' },\n      { answer: 'again', next: 'solution.1' },\n      { answer: 'back to question', next: 'solution.1' },\n    ]\n  },\n\n  \n\nDisconnect the related component harness connectors.\nInspect harness connectors, component connectors, and all male and female terminals for the following conditions:\nProper connector installation.\nDamaged connector locks.\nCorrosion.\nOther signs of water intrusion.\nWeather seal damage (if equipped).\nBent terminals.\nOverheating due to a poor connection (terminal may be discolored due to excessive current draw).\nTerminals that have been pushed back into the connector cavity.\nCheck for spread terminals and verify proper terminal tension.\nRepair any conditions that are found.\n\nConnect all PCM harness connectors. Be certain that all harness connectors are fully seated and the connector locks are fully engaged.\nConnect all in-line harness connectors (if equipped). Be certain that all connectors are fully seated and the connector locks are fully engaged.\nConnect all related component harness connectors. Be certain that all connectors are fully seated and the connector locks are fully engaged.\nWith the scan tool, erase DTCs.\nTest drive or operate the vehicle in accordance with the when monitored and set conditions.\nWith the scan tool, read DTCs.\n\n  'question2': {\n    label: 'CHECK THE IAT SENSOR FOR AN INTERNAL SHORT. Did P0113 set with the IAT Sensor disconnected?',\n    answers: [\n      { answer: 'yes', next: 'solution2' },\n      { answer: 'no', next: 'nosolution' },\n    ]\n  },\n  'solution.1': {\n    label: 'Solution. Pre-diagnostic troubleshooting procedure helped locate the problem.'\n  },\n  'solution2': {\n    label: 'Solution. intake air temperature (IAT) sensor.'\n  },\n  'nosolution': {\n    label: 'No Solutions found.'\n  }\n\n};",
+			"file": "src/sessions.js",
+			"file_size": 1029,
+			"file_write_time": 131393337560000000,
+			"settings":
+			{
+				"buffer_size": 2531,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -516,16 +584,16 @@
 	"command_palette":
 	{
 		"height": 337.0,
-		"last_filter": "ssjava",
+		"last_filter": "book",
 		"selected_items":
 		[
 			[
-				"ssjava",
-				"Set Syntax: JavaScript"
-			],
-			[
 				"book",
 				"Bookmarks: Toggle"
+			],
+			[
+				"ssjava",
+				"Set Syntax: JavaScript"
 			],
 			[
 				"ww",
@@ -860,7 +928,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 467.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -884,10 +952,19 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/pribeiro/dev/alexa"
+		"/Users/pribeiro/dev/alexa",
+		"/Users/pribeiro/dev/alexa/speechAssets",
+		"/Users/pribeiro/dev/alexa/src"
 	],
 	"file_history":
 	[
+		"/Users/pribeiro/dev/alexa/src/questions.js",
+		"/Users/pribeiro/dev/alexa/src/.babelrc",
+		"/Users/pribeiro/dev/alexa/src/test/setup.js",
+		"/Users/pribeiro/dev/alexa/src/package.json",
+		"/Users/pribeiro/dev/alexa/src/sessions.js",
+		"/Users/pribeiro/dev/alexa/.jshintrc",
+		"/Users/pribeiro/dev/alexa/src/index.js",
 		"/Users/pribeiro/dev/id-empolis-pilot/test/helpers/sales-codes-ext-nissan_test.js",
 		"/Users/pribeiro/dev/id-empolis-pilot/server/helpers/sales-codes-ext-chrysler.js",
 		"/Users/pribeiro/dev/id-empolis-pilot/server/config/oem/chrysler.js",
@@ -1008,18 +1085,11 @@
 		"/Users/pribeiro/dev/id-empolis-pilot/test/services/scan-socket-manager_test.js",
 		"/Users/pribeiro/dev/id-empolis-pilot/server/services/session-auto-answer.py",
 		"/Users/pribeiro/dev/id-empolis-pilot/test/services/nissan/workers/dom-transformers/wiring-related-content-extractor_test.js",
-		"/Users/pribeiro/dev/id-empolis-pilot/server/services/nissan/workers/dom-transformers/pre-diagnostic-solutions-modifier.js",
-		"/Users/pribeiro/dev/id-empolis-pilot/test/services/nissan/workers/solution-normalizer_test.js",
-		"/Users/pribeiro/dev/id-empolis-pilot/server/services/nissan/workers/dom-transformers/references-modifier.js",
-		"/Users/pribeiro/dev/id-empolis-pilot/server/services/nissan/workers/dom-transformers/wiring-related-content-extractor.js",
-		"/Users/pribeiro/dev/id-empolis-pilot/server/services/nissan/workers/solution-normalizer.js",
-		"/Users/pribeiro/dev/id-empolis-pilot/server/helpers/kue-job-wrapper.js",
-		"/Users/pribeiro/dev/id-empolis-pilot/server/services/nissan/nissan-service-context.js",
-		"/Users/pribeiro/dev/id-empolis-pilot/test/services/nissan/workers/nissan-service-context_test.js"
+		"/Users/pribeiro/dev/id-empolis-pilot/server/services/nissan/workers/dom-transformers/pre-diagnostic-solutions-modifier.js"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 77.0
 	},
 	"find_in_files":
 	{
@@ -1161,6 +1231,86 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"sessions",
+			"GAME_STATES",
+			"startSessionHandler",
+			"StartSession",
+			"handleAnswer",
+			"self",
+			"handleAnswer",
+			"handleEntry",
+			"handleAnswer",
+			"DIAGNOSTICS",
+			"nextQuestion",
+			"START_SESSION",
+			"nextQuestion",
+			"currentSession",
+			"nextQuestion",
+			"currentQuestion",
+			"this.",
+			"answer",
+			"'no': ",
+			"'yes':",
+			"handleAnswer.call(this);",
+			"DIAGNOSTICS",
+			"handleAnswer",
+			"isAnswerSlotValid",
+			"handleUserGuess",
+			"'Answer",
+			"START_SESSION",
+			"userGaveUp",
+			"handleUserGuess",
+			"CreateStateHandler",
+			"diagnosticHandler",
+			"TRIVIA",
+			"correctAnswerIndex",
+			"START_SESSION",
+			"questions",
+			"START_SESSION",
+			"question2.2",
+			"question2.1",
+			"question2",
+			"question3",
+			"question:",
+			"startStateHandlers",
+			"START",
+			"START_SESSION",
+			"START",
+			"languageString",
+			"\"",
+			"questions",
+			"'QUESTIONS'",
+			"i",
+			"for",
+			"handleUserGuess",
+			"translatedQuestions",
+			"for ",
+			"StartGame",
+			"WELCOME_MESSAGE",
+			"APP_ID",
+			"questions['QUESTIONS_EN_US']",
+			"GAME_NAME",
+			"handleUserGuess",
+			"currentQuestionIndex",
+			"repromptText",
+			"speechOutput",
+			"WELCOME_MESSAGE",
+			"GAME_NAME",
+			"NEW_GAME_MESSAGE",
+			"startStateHandlers",
+			"this.t",
+			"function t",
+			"t(",
+			"START_UNHANDLED",
+			":ask",
+			"startStateHandlers",
+			"this.emitWithState('StartGame',",
+			"StartGame",
+			"newSessionHandlers",
+			"Alexa.",
+			"GAME_STATES",
+			"CreateStateHandler",
+			"\"",
 			"Intent",
 			"Amazon",
 			"relatedContentExt.getQuery(vs)",
@@ -1208,87 +1358,7 @@
 			"fileName:",
 			"contentType",
 			"RelatedContentType",
-			"RelatedContent",
-			"expected record has Related Content",
-			"relatedContentList",
-			"relatedContent",
-			"RelatedContent",
-			"relatedContent",
-			"relatedContentExt",
-			"salesCodesHelper",
-			"helpers",
-			"salesCodes",
-			"relatedContentExt",
-			"salesCodeMap",
-			"mapSalesCode",
-			"salesCodeHelperNissan",
-			"salesCodeHelper",
-			"excludeMismatchingRelatedContentBySalesCodes",
-			"_.first",
-			"mapSalesCode",
-			"targetSalesCodes",
-			"sourceSalesCodes",
-			"nonEmptyKeys",
-			"matchesSalesCodes",
-			"match",
-			"console.log",
-			"match",
-			"sourceSalesCode",
-			"rcSalesMapCode",
-			"vsSalesCodesMap",
-			"_.first",
-			"salesCodeMap",
-			"mapSalesCode",
-			"The Sales Code Map Helper has the excludeMismatchingRelatedContentBySalesCodes giving vs.salesCod",
-			"mapSalesCode",
-			" salesCodes:",
-			"salesCodes",
-			"mismatch",
-			"rcSalesMapCodeKeys",
-			"mapSalesCode",
-			"relatedContents",
-			"contract",
-			"sendJSON",
-			"sendJSONErrorFunction",
-			"VehicleSession",
-			"Settings",
-			"frequencyFactor",
-			"emailNotifications",
-			"contract",
-			"precondition",
-			"biIsEnabled",
-			"bi",
-			"export",
-			"sendJSON",
-			"execute",
-			"commit",
-			"jsonHelper",
-			"axios.get",
-			"checkTree",
-			"solutionBackground",
-			"solutionsTemplate",
-			"checkDtcs",
-			"loadList()",
-			"resolveRankedDtcsResult",
-			"transaction",
-			"sendJSONError",
-			"render",
-			"mockConnectorFactoryOrUseRealOne",
-			"console.log",
-			"pop",
-			"}",
-			"dtc",
-			"|",
-			"0.",
-			",",
-			"B1019-45",
-			" ecu: ",
-			"@${this.outputVariable}",
-			"ProcedureCallWithArgs",
-			"Transaction",
-			"ModelFactory",
-			"describe",
-			"?"
+			"RelatedContent"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1296,6 +1366,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"'",
 			"</",
 			"",
 			"'",
@@ -1363,8 +1434,260 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16308,
+						"regions":
+						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										4522,
+										4522
+									]
+								],
+								"scope": "bookmarks"
+							}
+						},
+						"selection":
+						[
+							[
+								4853,
+								4853
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2858.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/package.json",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 646,
+						"regions":
+						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+								],
+								"scope": "string"
+							}
+						},
+						"selection":
+						[
+							[
+								387,
+								387
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/test/index_tests.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 202,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/mocha.opts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "speechAssets/SampleUtterances_en_US.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 515,
+						"regions":
+						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+								],
+								"scope": "string"
+							}
+						},
+						"selection":
+						[
+							[
+								133,
+								113
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/.jshintrc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 693,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								693,
+								693
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 393.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "src/sessions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2531,
+						"regions":
+						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+								],
+								"scope": "string"
+							}
+						},
+						"selection":
+						[
+							[
+								872,
+								872
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 829.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1385,11 +1708,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1411,7 +1741,7 @@
 	"project": "Alexa.sublime-project",
 	"replace":
 	{
-		"height": 74.0
+		"height": 128.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1420,6 +1750,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"pckage.",
+				"src/package.json"
+			],
 			[
 				"modelrelatedcontent",
 				"server/models/related-content.js"
@@ -1927,10 +2261,6 @@
 			[
 				"socket",
 				"server/services/scan-socket-manager.js"
-			],
-			[
-				"viewsimulator",
-				"server/views/admin/vehicle-simulator.jade"
 			]
 		],
 		"width": 0.0

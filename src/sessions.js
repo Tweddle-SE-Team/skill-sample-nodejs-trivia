@@ -3,8 +3,18 @@ module.exports = {
   'start': {
     label: 'PERFORM THE PRE-DIAGNOSTIC TROUBLESHOOTING PROCEDURE. Was the problem found and repaired?',
     answers: [
+      { answer: 'walk me through', next: 'procedure1' },
       { answer: 'yes', next: 'question2' },
       { answer: 'no', next: 'solution.1' },
+    ]
+  },
+
+  'procedure1': {
+    label: 'Step1. ',
+    answers: [
+      { answer: 'next', next: 'question2' },
+      { answer: 'again', next: 'solution.1' },
+      { answer: 'back to question', next: 'solution.1' },
     ]
   },
   'question2': {

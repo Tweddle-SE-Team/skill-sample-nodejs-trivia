@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var ANSWER_COUNT = 4; // The number of possible answers per trivia question.
 var GAME_LENGTH = 5; // The number of questions per trivia game.
-var GAME_STATES = {
+var STATE_MACHINE = {
   TRIVIA: '_TRIVIAMODE', // Asking trivia questions.
   START: '_STARTMODE', // Entry point, start the game.
   HELP: '_HELPMODE', // The user is asking for help.
@@ -70,19 +70,19 @@ exports.handler = function(event, context, callback) {
 
 var newSessionHandlers = {
   'LaunchRequest': function() {
-    this.handler.state = GAME_STATES.START_SESSION;
+    this.handler.state = STATE_MACHINE.START_SESSION;
     this.emitWithState('StartSession');
   },
   'AMAZON.StartOverIntent': function() {
-    this.handler.state = GAME_STATES.START_SESSION;
+    this.handler.state = STATE_MACHINE.START_SESSION;
     this.emitWithState('StartSession');
   },
   'NewSessionIntent': function() {
-    this.handler.state = GAME_STATES.START_SESSION;
+    this.handler.state = STATE_MACHINE.START_SESSION;
     this.emitWithState('StartSession');
   },
   'AMAZON.HelpIntent': function() {
-    this.handler.state = GAME_STATES.HELP;
+    this.handler.state = STATE_MACHINE.HELP;
     this.emitWithState('helpTheUser', true);
   },
   'Unhandled': function() {
@@ -92,7 +92,7 @@ var newSessionHandlers = {
 };
 
 
-var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
+var startSessionHandler = Alexa.CreateStateHandler(STATE_MACHINE.START_SESSION, {
   'StartSession': function(newGame) {
     // var speechOutput = newGame ? this.t('NEW_GAME_MESSAGE', this.t('GAME_NAME')) + this.t('WELCOME_MESSAGE', GAME_LENGTH.toString()) : '';
 
@@ -102,21 +102,21 @@ var startSessionHandler = Alexa.CreateStateHandler(GAME_STATES.START_SESSION, {
     Object.assign(this.attributes, {
       'currentNode': 'start',
     });
-    this.handler.state = GAME_STATES.DIAGNOSTICS;
+    this.handler.state = STATE_MACHINE.DIAGNOSTICS;
     this.emit(':askWithCard', label);
   }
 });
 
-var sessionOverHandler = Alexa.CreateStateHandler(GAME_STATES.SESSION_OVER, {
+var sessionOverHandler = Alexa.CreateStateHandler(STATE_MACHINE.SESSION_OVER, {
   'Unhandled': function() {
     this.emit(':askWithCard', 'You reached the end of the session.');
   },
   'AMAZON.StartOverIntent': function() {
-    this.handler.state = GAME_STATES.START_SESSION;
+    this.handler.state = STATE_MACHINE.START_SESSION;
     this.emitWithState('StartSession');
   }
 });
-var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
+var diagnosticHandler = Alexa.CreateStateHandler(STATE_MACHINE.DIAGNOSTICS, {
   'AMAZON.YesIntent': function() {
     processDiagnosticHandler(this)('yes');
   },
@@ -127,7 +127,7 @@ var diagnosticHandler = Alexa.CreateStateHandler(GAME_STATES.DIAGNOSTICS, {
     processDiagnosticHandler(this)('unknown');
   },
   'AMAZON.StartOverIntent': function() {
-    this.handler.state = GAME_STATES.START_SESSION;
+    this.handler.state = STATE_MACHINE.START_SESSION;
     this.emitWithState('StartSession');
   }
 });
@@ -155,13 +155,13 @@ function processDiagnosticHandler(self) {
       });
 
       if (_.isEmpty(nextQuestion.answers)) {
-        this.handler.state = GAME_STATES.SESSION_OVER;
+        this.handler.state = STATE_MACHINE.SESSION_OVER;
       }
 
       self.emit(':askWithCard', label);
 
     } else {
-      this.handler.state = GAME_STATES.SESSION_OVER;
+      this.handler.state = STATE_MACHINE.SESSION_OVER;
       this.emitWithState('StartSession');
     }
 
@@ -169,7 +169,7 @@ function processDiagnosticHandler(self) {
 
 }
 
-var startStateHandlers = Alexa.CreateStateHandler(GAME_STATES.START, {
+var startStateHandlers = Alexa.CreateStateHandler(STATE_MACHINE.START, {
   'StartGame': function(newGame) {
     var speechOutput = newGame ? this.t('NEW_GAME_MESSAGE', this.t('GAME_NAME')) + this.t('WELCOME_MESSAGE', GAME_LENGTH.toString()) : '';
     // Select GAME_LENGTH questions for the game
@@ -203,12 +203,12 @@ var startStateHandlers = Alexa.CreateStateHandler(GAME_STATES.START, {
     });
 
     // Set the current state to trivia mode. The skill will now use handlers defined in triviaStateHandlers
-    this.handler.state = GAME_STATES.TRIVIA;
+    this.handler.state = STATE_MACHINE.TRIVIA;
     this.emit(':askWithCard', speechOutput, repromptText, this.t('GAME_NAME'), repromptText);
   }
 });
 
-var triviaStateHandlers = Alexa.CreateStateHandler(GAME_STATES.TRIVIA, {
+var triviaStateHandlers = Alexa.CreateStateHandler(STATE_MACHINE.TRIVIA, {
   'AnswerIntent': function() {
     handleUserGuess.call(this, false);
   },
@@ -216,18 +216,18 @@ var triviaStateHandlers = Alexa.CreateStateHandler(GAME_STATES.TRIVIA, {
     handleUserGuess.call(this, true);
   },
   'AMAZON.StartOverIntent': function() {
-    this.handler.state = GAME_STATES.START;
+    this.handler.state = STATE_MACHINE.START;
     this.emitWithState('StartGame', false);
   },
   'AMAZON.RepeatIntent': function() {
     this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptText']);
   },
   'AMAZON.HelpIntent': function() {
-    this.handler.state = GAME_STATES.HELP;
+    this.handler.state = STATE_MACHINE.HELP;
     this.emitWithState('helpTheUser', false);
   },
   'AMAZON.StopIntent': function() {
-    this.handler.state = GAME_STATES.HELP;
+    this.handler.state = STATE_MACHINE.HELP;
     var speechOutput = this.t('STOP_MESSAGE');
     this.emit(':ask', speechOutput, speechOutput);
   },
@@ -243,7 +243,7 @@ var triviaStateHandlers = Alexa.CreateStateHandler(GAME_STATES.TRIVIA, {
   }
 });
 
-var helpStateHandlers = Alexa.CreateStateHandler(GAME_STATES.HELP, {
+var helpStateHandlers = Alexa.CreateStateHandler(STATE_MACHINE.HELP, {
   'helpTheUser': function(newGame) {
     var askMessage = newGame ? this.t('ASK_MESSAGE_START') : this.t('REPEAT_QUESTION_MESSAGE') + this.t('STOP_MESSAGE');
     var speechOutput = this.t('HELP_MESSAGE', GAME_LENGTH) + askMessage;
@@ -251,7 +251,7 @@ var helpStateHandlers = Alexa.CreateStateHandler(GAME_STATES.HELP, {
     this.emit(':ask', speechOutput, repromptText);
   },
   'AMAZON.StartOverIntent': function() {
-    this.handler.state = GAME_STATES.START;
+    this.handler.state = STATE_MACHINE.START;
     this.emitWithState('StartGame', false);
   },
   'AMAZON.RepeatIntent': function() {
@@ -264,10 +264,10 @@ var helpStateHandlers = Alexa.CreateStateHandler(GAME_STATES.HELP, {
   },
   'AMAZON.YesIntent': function() {
     if (this.attributes['speechOutput'] && this.attributes['repromptText']) {
-      this.handler.state = GAME_STATES.TRIVIA;
+      this.handler.state = STATE_MACHINE.TRIVIA;
       this.emitWithState('AMAZON.RepeatIntent');
     } else {
-      this.handler.state = GAME_STATES.START;
+      this.handler.state = STATE_MACHINE.START;
       this.emitWithState('StartGame', false);
     }
   },
