@@ -57,7 +57,7 @@ var languageString = {
 };
 
 var Alexa = require('alexa-sdk');
-var APP_ID = 'amzn1.ask.skill.0c2e631d-d216-46fa-a262-109020e4eefa';
+var APP_ID = 'amzn1.ask.skill.fa1a423a-9ebd-4b3d-b67f-08d27fe362e9';
 
 exports.handler = function(event, context, callback) {
   var alexa = Alexa.handler(event, context);
