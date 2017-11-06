@@ -9,7 +9,7 @@ var STATE_MACHINE = {
   HELP: '_HELPMODE', // The user is asking for help.
   START_SESSION: '_START_SESSIONMODE', // Entry point, start the session.
   SESSION_OVER: '_SESSION_OVERMODE', // Entry point, start the session.
-  DIAGNOSTICS: '_DIAGNOSTICS_MODE' // Entry point, start the session.
+  SEARCH: '_SEARCH_MODE' // Entry point, start the session.
 };
 var questions = require('./questions');
 var sessions = require('./sessions');
@@ -35,7 +35,7 @@ var languageString = {
       'NO_MESSAGE': 'Ok, we\'ll play another time. Goodbye!',
       'TRIVIA_UNHANDLED': 'Try saying a number between 1 and %s',
       'HELP_UNHANDLED': 'Say yes to continue, or no to end the game.',
-      'START_UNHANDLED': 'Say start to start a new game.',
+      'START_UNHANDLED': 'Say start, to start a new game.',
       'NEW_GAME_MESSAGE': 'Welcome to %s. ',
       'WELCOME_MESSAGE': 'I will ask you %s questions, try to get as many right as you can. ' +
         'Just say the number of the answer. Let\'s begin. ',
@@ -62,9 +62,10 @@ var APP_ID = 'amzn1.ask.skill.fa1a423a-9ebd-4b3d-b67f-08d27fe362e9';
 exports.handler = function(event, context, callback) {
   var alexa = Alexa.handler(event, context);
   alexa.appId = APP_ID;
+  alexa.APP_ID = APP_ID;
   // To enable string internationalization (i18n) features, set a resources object.
   alexa.resources = languageString;
-  alexa.registerHandlers(newSessionHandlers, startSessionHandler, diagnosticHandler, startStateHandlers, triviaStateHandlers, helpStateHandlers, sessionOverHandler);
+  alexa.registerHandlers(newSessionHandlers, startSessionHandler, searchHandler, startStateHandlers, triviaStateHandlers, helpStateHandlers, sessionOverHandler);
   alexa.execute();
 };
 
@@ -97,12 +98,12 @@ var startSessionHandler = Alexa.CreateStateHandler(STATE_MACHINE.START_SESSION, 
     // var speechOutput = newGame ? this.t('NEW_GAME_MESSAGE', this.t('GAME_NAME')) + this.t('WELCOME_MESSAGE', GAME_LENGTH.toString()) : '';
 
     var question = sessions.start,
-      label = 'You are about to start a new session. Here we go. ' + question.label;
+      label = 'Ok, how can I help with your RV?';
 
     Object.assign(this.attributes, {
       'currentNode': 'start',
     });
-    this.handler.state = STATE_MACHINE.DIAGNOSTICS;
+    this.handler.state = STATE_MACHINE.SEARCH;
     this.emit(':askWithCard', label);
   }
 });
@@ -116,13 +117,21 @@ var sessionOverHandler = Alexa.CreateStateHandler(STATE_MACHINE.SESSION_OVER, {
     this.emitWithState('StartSession');
   }
 });
-var diagnosticHandler = Alexa.CreateStateHandler(STATE_MACHINE.DIAGNOSTICS, {
-  'AMAZON.YesIntent': function() {
-    processDiagnosticHandler(this)('yes');
+var searchHandler = Alexa.CreateStateHandler(STATE_MACHINE.SEARCH, {
+  'YesIntent': function() {
+    this.response.playVideo('https://s2.content.video.llnw.net/smedia/1462487a0ed04e85a5f4f26ea88f9aba/1h/J6SXM6tbMOKLCAwhp0O9IIG2Erayhn7KKsGfF827E/18z_cv-11_powerwindows.mp4');
+
   },
   'AMAZON.NoIntent': function() {
-    processDiagnosticHandler(this)('no');
+    this.emit(':tell', `Ok let me know what else I can do`);
+    this.emitWithState('StartSession');
   },
+  'HelpTopic': function() {
+    const topic = getTopic(this.event.request.intent);
+    this.emit(':ask', `Would you like to watch a video?`);
+
+  },
+
   'Unhandled': function() {
     processDiagnosticHandler(this)('unknown');
   },
@@ -132,13 +141,18 @@ var diagnosticHandler = Alexa.CreateStateHandler(STATE_MACHINE.DIAGNOSTICS, {
   }
 });
 
+function getAnswer(intent, defaultValue) {
+  //Todo Answer value must be a different type for this to work
+  return _.get(intent, 'slots.Answer.value', defaultValue);
+}
+
+function getTopic(intent) {
+  return _.get(intent, 'slots.topic.value');
+}
+
 function processDiagnosticHandler(self) {
   return function(defaultValue) {
 
-    function getAnswer(intent) {
-      //Todo Answer value must be a different type for this to work
-      return _.get(intent, 'slots.Answer.value', defaultValue);
-    }
 
     var
       answer = getAnswer(self.event.request.intent),
@@ -262,7 +276,7 @@ var helpStateHandlers = Alexa.CreateStateHandler(STATE_MACHINE.HELP, {
     var newGame = (this.attributes['speechOutput'] && this.attributes['repromptText']) ? false : true;
     this.emitWithState('helpTheUser', newGame);
   },
-  'AMAZON.YesIntent': function() {
+  'YesIntent': function() {
     if (this.attributes['speechOutput'] && this.attributes['repromptText']) {
       this.handler.state = STATE_MACHINE.TRIVIA;
       this.emitWithState('AMAZON.RepeatIntent');
@@ -271,7 +285,7 @@ var helpStateHandlers = Alexa.CreateStateHandler(STATE_MACHINE.HELP, {
       this.emitWithState('StartGame', false);
     }
   },
-  'AMAZON.NoIntent': function() {
+  'NoIntent': function() {
     var speechOutput = this.t('NO_MESSAGE');
     this.emit(':tell', speechOutput);
   },
