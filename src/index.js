@@ -111,7 +111,12 @@ var startSessionHandler = Alexa.CreateStateHandler(STATE_MACHINE.START_SESSION, 
     });
     this.handler.state = STATE_MACHINE.SEARCH;
     this.emit(':ask', label);
-  }
+  },
+  'Unhandled': function() {
+    this.handler.state = STATE_MACHINE.SEARCH;
+    this.emit(':ask', 'You can say. I need help with tire safety or, Im looking for fresh water');
+  },
+
 });
 
 var sessionOverHandler = Alexa.CreateStateHandler(STATE_MACHINE.SESSION_OVER, {
@@ -132,7 +137,7 @@ var searchHandler = Alexa.CreateStateHandler(STATE_MACHINE.SEARCH, {
   'OwnersManualIntent': function() {
     const builder = new Alexa.templateBuilders.BodyTemplate1Builder();
 
-    let template = builder.setTitle('Propane')
+    let template = builder.setTitle('Slide Room Operation')
       //      .setBackgroundImage(makeImage('http://www.forestriverinc.com/images/cargo-1.jpg'))
       .setTextContent(makeRichText(textrtf))
       .build();
@@ -143,23 +148,19 @@ var searchHandler = Alexa.CreateStateHandler(STATE_MACHINE.SEARCH, {
     //this.response.playVideo('https://s2.content.video.llnw.net/smedia/1462487a0ed04e85a5f4f26ea88f9aba/1h/J6SXM6tbMOKLCAwhp0O9IIG2Erayhn7KKsGfF827E/18z_cv-11_powerwindows.mp4');
     this.emit(':responseReady');
   },
-  'AMAZON.NoIntent': function() {
-    this.emit(':tell', `Ok let me know what else I can do`);
-    this.emitWithState('StartSession');
+  'Unhandled': function() {
+    this.emit(':ask', 'I could not find what you ask for. You can say. I need help with fuses');
   },
   'HelpTopicIntent': function() {
     const topic = getTopic(this.event.request.intent);
     this.emit(':ask', `I've found what you're looking for, would you like information from the Owner's Manual or would you like to watch video?`);
 
   },
-
-  'Unhandled': function() {
-    processDiagnosticHandler(this)('unknown');
-  },
   'AMAZON.StartOverIntent': function() {
     this.handler.state = STATE_MACHINE.START_SESSION;
     this.emitWithState('StartSession');
   }
+
 });
 
 function generateLoremIpsum() {
