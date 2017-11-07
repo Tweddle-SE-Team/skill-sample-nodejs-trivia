@@ -13,6 +13,7 @@ var STATE_MACHINE = {
 };
 var questions = require('./questions');
 var sessions = require('./sessions');
+var textrtf = require('./textrtf').text
 
 
 /**
@@ -57,6 +58,11 @@ var languageString = {
 };
 
 var Alexa = require('alexa-sdk');
+const makeImage = Alexa.utils.ImageUtils.makeImage;
+const makePlainText = Alexa.utils.TextUtils.makePlainText;
+const makeRichText = Alexa.utils.TextUtils.makeRichText;
+
+
 var APP_ID = 'amzn1.ask.skill.fa1a423a-9ebd-4b3d-b67f-08d27fe362e9';
 
 exports.handler = function(event, context, callback) {
@@ -104,13 +110,13 @@ var startSessionHandler = Alexa.CreateStateHandler(STATE_MACHINE.START_SESSION, 
       'currentNode': 'start',
     });
     this.handler.state = STATE_MACHINE.SEARCH;
-    this.emit(':askWithCard', label);
+    this.emit(':ask', label);
   }
 });
 
 var sessionOverHandler = Alexa.CreateStateHandler(STATE_MACHINE.SESSION_OVER, {
   'Unhandled': function() {
-    this.emit(':askWithCard', 'You reached the end of the session.');
+    this.emit(':ask', 'You reached the end of the session.');
   },
   'AMAZON.StartOverIntent': function() {
     this.handler.state = STATE_MACHINE.START_SESSION;
@@ -118,17 +124,32 @@ var sessionOverHandler = Alexa.CreateStateHandler(STATE_MACHINE.SESSION_OVER, {
   }
 });
 var searchHandler = Alexa.CreateStateHandler(STATE_MACHINE.SEARCH, {
-  'YesIntent': function() {
+  'PlayVideoIntent': function() {
     this.response.playVideo('https://s2.content.video.llnw.net/smedia/1462487a0ed04e85a5f4f26ea88f9aba/1h/J6SXM6tbMOKLCAwhp0O9IIG2Erayhn7KKsGfF827E/18z_cv-11_powerwindows.mp4');
+    this.emit(':responseReady');
 
+  },
+  'OwnersManualIntent': function() {
+    const builder = new Alexa.templateBuilders.BodyTemplate1Builder();
+
+    let template = builder.setTitle('Propane')
+      //      .setBackgroundImage(makeImage('http://www.forestriverinc.com/images/cargo-1.jpg'))
+      .setTextContent(makeRichText(textrtf))
+      .build();
+
+    this.response.speak('Rendering a template!')
+      .renderTemplate(template);
+
+    //this.response.playVideo('https://s2.content.video.llnw.net/smedia/1462487a0ed04e85a5f4f26ea88f9aba/1h/J6SXM6tbMOKLCAwhp0O9IIG2Erayhn7KKsGfF827E/18z_cv-11_powerwindows.mp4');
+    this.emit(':responseReady');
   },
   'AMAZON.NoIntent': function() {
     this.emit(':tell', `Ok let me know what else I can do`);
     this.emitWithState('StartSession');
   },
-  'HelpTopic': function() {
+  'HelpTopicIntent': function() {
     const topic = getTopic(this.event.request.intent);
-    this.emit(':ask', `Would you like to watch a video?`);
+    this.emit(':ask', `I've found what you're looking for, would you like information from the Owner's Manual or would you like to watch video?`);
 
   },
 
@@ -140,6 +161,14 @@ var searchHandler = Alexa.CreateStateHandler(STATE_MACHINE.SEARCH, {
     this.emitWithState('StartSession');
   }
 });
+
+function generateLoremIpsum() {
+  return `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius venenatis mi, porta ullamcorper risus consectetur ut. Nam eros metus, accumsan non auctor a, pharetra non neque. Vestibulum ut arcu ut sapien interdum congue vel tristique nunc. Aliquam ut tortor eu turpis suscipit consequat id at diam. Quisque euismod eu nunc vitae consectetur. Sed at eleifend nunc. Praesent sollicitudin sagittis hendrerit.
+Quisque eu mauris orci. Fusce aliquet velit placerat purus dignissim elementum eu eget sapien. Cras a felis enim. Donec pulvinar sem dolor, sit amet tincidunt magna feugiat a. Praesent sed lacus turpis. Integer sed malesuada leo. Cras quis nunc at tellus dignissim luctus.
+Nunc imperdiet convallis massa id tempus. Curabitur congue orci porttitor justo consectetur, vel gravida est pretium. Cras dignissim suscipit orci, sit amet ullamcorper tellus consequat ut. Pellentesque vehicula nulla eu neque tristique, vel viverra magna gravida. Praesent vitae pretium felis. Nam libero orci, semper molestie pellentesque ac, vehicula vitae metus. Mauris dignissim quis enim molestie scelerisque. Etiam a sollicitudin leo. Vestibulum non sapien orci. In gravida nulla libero, nec egestas dui pellentesque quis. Donec nec eleifend ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam eu commodo arcu. Sed cursus mi sit amet mi commodo aliquet. Sed rhoncus lacus in mauris vestibulum, a ornare velit aliquet.
+Sed convallis, risus molestie fermentum ultrices, eros ipsum accumsan sem, nec euismod erat urna in leo. Praesent vehicula sodales dolor. Fusce consectetur malesuada nisi sit amet venenatis. Aliquam erat volutpat. Morbi feugiat lacus est, ut interdum orci fringilla eget. Nam vehicula mi et risus ullamcorper rhoncus. Nulla vel justo lorem. Nullam non metus lobortis, fermentum nisi fringilla, feugiat nulla. Donec nec fringilla ligula, vel imperdiet risus. Suspendisse potenti. Morbi semper dictum eros et egestas. Pellentesque gravida, lacus a tincidunt pulvinar, massa nunc suscipit arcu, quis faucibus est nisl vel odio. Donec cursus eleifend turpis, at ornare mauris sagittis eget. Ut malesuada vestibulum ipsum et commodo. Phasellus rutrum pellentesque nisi et fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+`;
+}
 
 function getAnswer(intent, defaultValue) {
   //Todo Answer value must be a different type for this to work
@@ -172,7 +201,7 @@ function processDiagnosticHandler(self) {
         this.handler.state = STATE_MACHINE.SESSION_OVER;
       }
 
-      self.emit(':askWithCard', label);
+      self.emit(':ask', label);
 
     } else {
       this.handler.state = STATE_MACHINE.SESSION_OVER;
@@ -218,7 +247,7 @@ var startStateHandlers = Alexa.CreateStateHandler(STATE_MACHINE.START, {
 
     // Set the current state to trivia mode. The skill will now use handlers defined in triviaStateHandlers
     this.handler.state = STATE_MACHINE.TRIVIA;
-    this.emit(':askWithCard', speechOutput, repromptText, this.t('GAME_NAME'), repromptText);
+    this.emit(':ask', speechOutput, repromptText, this.t('GAME_NAME'), repromptText);
   }
 });
 
@@ -358,7 +387,7 @@ function handleUserGuess(userGaveUp) {
       'correctAnswerText': translatedQuestions[gameQuestions[currentQuestionIndex]][Object.keys(translatedQuestions[gameQuestions[currentQuestionIndex]])[0]][0]
     });
 
-    this.emit(':askWithCard', speechOutput, repromptText, this.t('GAME_NAME'), repromptText);
+    this.emit(':ask', speechOutput, repromptText, this.t('GAME_NAME'), repromptText);
   }
 }
 
