@@ -10,12 +10,19 @@ class Builder {
   addParagraph(s) {
     // body...
     this.text.push(BR)
+    this.text.push(BR)
     this.text.push(s)
     return this;
   }
   addBold(s) {
     // body...
     this.text.push(` <b>${s}</b>`);
+    return this;
+  }
+  addBoldParagraph(s) {
+    // body...
+    this.addParagraph();
+    this.text.push(`<b>${s}</b>`);
     return this;
   }
   addItalic(s) {

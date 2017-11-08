@@ -14,7 +14,7 @@ var STATE_MACHINE = {
 var questions = require('./questions');
 var sessions = require('./sessions');
 var textrtf = require('./textrtf').text
-
+var documents = require('./documents');
 
 /**
  * When editing your questions pay attention to your punctuation. Make sure you use question marks or periods.
@@ -60,7 +60,6 @@ var languageString = {
 var Alexa = require('alexa-sdk');
 const makeImage = Alexa.utils.ImageUtils.makeImage;
 const makePlainText = Alexa.utils.TextUtils.makePlainText;
-const makeRichText = Alexa.utils.TextUtils.makeRichText;
 
 
 var APP_ID = 'amzn1.ask.skill.fa1a423a-9ebd-4b3d-b67f-08d27fe362e9';
@@ -92,9 +91,12 @@ var newSessionHandlers = {
     this.handler.state = STATE_MACHINE.HELP;
     this.emitWithState('helpTheUser', true);
   },
+  'WhereAreYouIntent': function() {
+    this.emit(':ask', 'I am at new session handlers');
+  },
   'Unhandled': function() {
     var speechOutput = this.t('START_UNHANDLED');
-    this.emit(':ask', speechOutput, speechOutput);
+    this.emit(':ask', 'Unhandled new Session Handler', speechOutput);
   }
 };
 
@@ -111,6 +113,15 @@ var startSessionHandler = Alexa.CreateStateHandler(STATE_MACHINE.START_SESSION, 
     });
     this.handler.state = STATE_MACHINE.SEARCH;
     this.emit(':ask', label);
+  },
+  'WhereAreYouIntent': function() {
+    this.emit(':ask', 'I am at start session handlers');
+  },
+  'HelpTopicIntent': function() {
+    const topic = getTopic(this.event.request.intent);
+    this.handler.state = STATE_MACHINE.SEARCH;
+    this.attributes['currentTopic'] = topic || 'NOTHING';
+    this.emit(':ask', `I've found what you're looking for, would you like information from the Owner's Manual, or would you like to watch a video?`);
   },
   'Unhandled': function() {
     this.handler.state = STATE_MACHINE.SEARCH;
@@ -130,30 +141,49 @@ var sessionOverHandler = Alexa.CreateStateHandler(STATE_MACHINE.SESSION_OVER, {
 });
 var searchHandler = Alexa.CreateStateHandler(STATE_MACHINE.SEARCH, {
   'PlayVideoIntent': function() {
-    this.response.playVideo('https://s2.content.video.llnw.net/smedia/1462487a0ed04e85a5f4f26ea88f9aba/1h/J6SXM6tbMOKLCAwhp0O9IIG2Erayhn7KKsGfF827E/18z_cv-11_powerwindows.mp4');
+    console.log('PlayVideoIntent', JSON.stringify(this.event.request));
+    let doc = documents.getDocumentFor(this.attributes['currentTopic']);
+    this.response.listen('Playing video!').playVideo(doc.video);
     this.emit(':responseReady');
 
   },
-  'OwnersManualIntent': function() {
-    const builder = new Alexa.templateBuilders.BodyTemplate1Builder();
+  'WhereAreYouIntent': function() {
+    this.emit(':ask', 'I am at search handler');
 
-    let template = builder.setTitle('Slide Room Operation')
+  },
+
+  'OwnersManualIntent': function() {
+    console.log('OwnersManualIntent', JSON.stringify(this.event.request));
+    const builder = new Alexa.templateBuilders.BodyTemplate1Builder();
+    let doc = documents.getDocumentFor(this.attributes['currentTopic']);
+    let template = builder.setTitle(doc.title)
       //      .setBackgroundImage(makeImage('http://www.forestriverinc.com/images/cargo-1.jpg'))
-      .setTextContent(makeRichText(textrtf))
+      .setTextContent(doc.text)
       .build();
 
-    this.response.speak('Rendering a template!')
+    this.response.listen('Rendering Owners Manual!')
       .renderTemplate(template);
 
     //this.response.playVideo('https://s2.content.video.llnw.net/smedia/1462487a0ed04e85a5f4f26ea88f9aba/1h/J6SXM6tbMOKLCAwhp0O9IIG2Erayhn7KKsGfF827E/18z_cv-11_powerwindows.mp4');
+
     this.emit(':responseReady');
   },
   'Unhandled': function() {
+    console.log('Unhandled', JSON.stringify(this.event.request));
     this.emit(':ask', 'I could not find what you ask for. You can say. I need help with fuses');
   },
   'HelpTopicIntent': function() {
     const topic = getTopic(this.event.request.intent);
-    this.emit(':ask', `I've found what you're looking for, would you like information from the Owner's Manual or would you like to watch video?`);
+
+    let docs = documents.getDocumentFor(topic);
+    if (_.isEmpty(docs)) {
+      this.emit(':ask', `I have not found anything, would you give another try`);
+    } else if (docs.length == 1) {
+      this.attributes['currentTopic'] = topic || 'NOTHING';
+      this.emit(':ask', `I've found what you're looking for, would you like information from the Owner's Manual, or would you like to watch a video?`);
+    } else {
+      this.emit(':ask', `I've found many options, please refine`);
+    }
 
   },
   'AMAZON.StartOverIntent': function() {
@@ -214,6 +244,10 @@ function processDiagnosticHandler(self) {
 }
 
 var startStateHandlers = Alexa.CreateStateHandler(STATE_MACHINE.START, {
+  'WhereAreYouIntent': function() {
+    this.emit(':ask', 'I am at start machine handler');
+  },
+
   'StartGame': function(newGame) {
     var speechOutput = newGame ? this.t('NEW_GAME_MESSAGE', this.t('GAME_NAME')) + this.t('WELCOME_MESSAGE', GAME_LENGTH.toString()) : '';
     // Select GAME_LENGTH questions for the game

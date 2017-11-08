@@ -12,19 +12,19 @@ describe('The Rich Text Builder module', () => {
     assert(builderModule.create, JSON.stringify(builderModule));
   });
   it('creates paragraphs with br', () => {
-    assert.deepEqual(b.addParagraph('This is a paragraph').buildText(), '<br/>This is a paragraph');
+    assert.deepEqual(b.addParagraph('This is a paragraph').buildText(), '<br/><br/>This is a paragraph');
   });
   it('creates line break br', () => {
-    assert.deepEqual(b.addParagraph('This is a paragraph').addLineBreak().buildText(), '<br/>This is a paragraph<br/>');
+    assert.deepEqual(b.addParagraph('This is a paragraph').addLineBreak().buildText(), '<br/><br/>This is a paragraph<br/>');
   });
   it('creates bold ', () => {
-    assert.deepEqual(b.addParagraph('This is a paragraph').addBold('this is bold').buildText(), '<br/>This is a paragraph <b>this is bold</b>');
+    assert.deepEqual(b.addParagraph('This is a paragraph').addBold('this is bold').buildText(), '<br/><br/>This is a paragraph <b>this is bold</b>');
   });
   it('creates italic ', () => {
-    assert.deepEqual(b.addParagraph('This is a paragraph').addItalic('this is italic').buildText(), '<br/>This is a paragraph <i>this is italic</i>');
+    assert.deepEqual(b.addParagraph('This is a paragraph').addItalic('this is italic').buildText(), '<br/><br/>This is a paragraph <i>this is italic</i>');
   });
   it('creates underlined ', () => {
-    assert.deepEqual(b.addParagraph('This is a paragraph').addUnderline('this is underlined').buildText(), '<br/>This is a paragraph <u>this is underlined</u>');
+    assert.deepEqual(b.addParagraph('This is a paragraph').addUnderline('this is underlined').buildText(), '<br/><br/>This is a paragraph <u>this is underlined</u>');
   });
   it('creates font cases ', () => {
     assert.deepEqual(b
