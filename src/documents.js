@@ -2,7 +2,7 @@ var Alexa = require('alexa-sdk');
 const makeImage = Alexa.utils.ImageUtils.makeImage;
 const makePlainText = Alexa.utils.TextUtils.makePlainText;
 const makeRichText = Alexa.utils.TextUtils.makeRichText;
-
+var _ = require('lodash');
 
 var builder = require('./richtext-builder');
 
@@ -35,6 +35,7 @@ let slideRoom = {
 
 let freshWaterTank = {
   title: 'Fresh Water Holding Tank',
+  video: 'https://s3-us-west-2.amazonaws.com/forest-river-videos/videos/Checking+Water+Tank+Levels.mp4',
   text: makeRichText(
     builder.create()
     .addLargeFont('Introduction')
@@ -44,6 +45,7 @@ let freshWaterTank = {
 
 let waterPump = {
   title: 'Water Pump',
+  video: 'https://s3-us-west-2.amazonaws.com/forest-river-videos/videos/Checking+Water+Tank+Levels.mp4',
   text: makeRichText(
     builder.create()
     .addLargeFont('Water Pump Care and Operation')
@@ -53,6 +55,7 @@ let waterPump = {
 
 let waterSystemMaintenance = {
   title: 'Water System Maintenance and Troubleshooting',
+  video: 'https://s3-us-west-2.amazonaws.com/forest-river-videos/videos/Checking+Water+Tank+Levels.mp4',
   text: makeRichText(
     builder.create()
     .addLargeFont('Overview')
@@ -64,8 +67,8 @@ let waterSystemMaintenance = {
 
 // I want to use this topic as the example that we show a list:
 
-// So when the user asks "help me with my water tank"
-// Alexa says "i found more than one results for water tank. You can choose from the list on the screen"
+// So when the user asks 'help me with my water tank'
+// Alexa says 'i found more than one results for water tank. You can choose from the list on the screen'
 
 // Screen displays 4 items in the list:
 // - Checking Water Tank Levels                                     Video (icon?)
@@ -75,16 +78,28 @@ let waterSystemMaintenance = {
 
 let documents = {
   'water tank': [waterSystemMaintenance, waterPump, freshWaterTank],
+
   'slide room operation': [slideRoom],
+  'slide room': [slideRoom],
+
   'fresh water holding tank': [freshWaterTank],
+  'fresh water': [freshWaterTank],
+  'tank': [freshWaterTank],
+
   'water system maintenance and troubleshooting': [waterSystemMaintenance],
+
+  'water system': [waterSystemMaintenance],
+  'water maintenance': [waterSystemMaintenance],
+  'water system maintenance': [waterSystemMaintenance],
+
   'water pump': [waterPump]
+
 };
 
 
 module.exports = {
   getDocumentFor: function(key) {
 
-    return documents[key.toLowerCase()] || [];
+    return documents[_.lowerCase(key)] || [];
   }
 }

@@ -91,7 +91,7 @@ var newSessionHandlers = {
     this.handler.state = STATE_MACHINE.HELP;
     this.emitWithState('helpTheUser', true);
   },
-  'WhereAreYouIntent': function() {
+  'DebugIntent': function() {
     this.emit(':ask', 'I am at new session handlers');
   },
   'Unhandled': function() {
@@ -114,7 +114,7 @@ var startSessionHandler = Alexa.CreateStateHandler(STATE_MACHINE.START_SESSION, 
     this.handler.state = STATE_MACHINE.SEARCH;
     this.emit(':ask', label);
   },
-  'WhereAreYouIntent': function() {
+  'DebugIntent': function() {
     this.emit(':ask', 'I am at start session handlers');
   },
   'HelpTopicIntent': function() {
@@ -142,12 +142,12 @@ var sessionOverHandler = Alexa.CreateStateHandler(STATE_MACHINE.SESSION_OVER, {
 var searchHandler = Alexa.CreateStateHandler(STATE_MACHINE.SEARCH, {
   'PlayVideoIntent': function() {
     console.log('PlayVideoIntent', JSON.stringify(this.event.request));
-    let doc = documents.getDocumentFor(this.attributes['currentTopic']);
+    let doc = documents.getDocumentFor(this.attributes['currentTopic'])[0];
     this.response.listen('Playing video!').playVideo(doc.video);
     this.emit(':responseReady');
 
   },
-  'WhereAreYouIntent': function() {
+  'DebugIntent': function() {
     this.emit(':ask', 'I am at search handler');
 
   },
@@ -155,11 +155,12 @@ var searchHandler = Alexa.CreateStateHandler(STATE_MACHINE.SEARCH, {
   'OwnersManualIntent': function() {
     console.log('OwnersManualIntent', JSON.stringify(this.event.request));
     const builder = new Alexa.templateBuilders.BodyTemplate1Builder();
-    let doc = documents.getDocumentFor(this.attributes['currentTopic']);
+    let doc = documents.getDocumentFor(this.attributes['currentTopic'])[0];
     let template = builder.setTitle(doc.title)
       //      .setBackgroundImage(makeImage('http://www.forestriverinc.com/images/cargo-1.jpg'))
       .setTextContent(doc.text)
-      .build();
+
+    .build();
 
     this.response.listen('Rendering Owners Manual!')
       .renderTemplate(template);
@@ -182,7 +183,29 @@ var searchHandler = Alexa.CreateStateHandler(STATE_MACHINE.SEARCH, {
       this.attributes['currentTopic'] = topic || 'NOTHING';
       this.emit(':ask', `I've found what you're looking for, would you like information from the Owner's Manual, or would you like to watch a video?`);
     } else {
-      this.emit(':ask', `I've found many options, please refine`);
+
+      let itemBuilder = new Alexa.templateBuilders.ListItemBuilder();
+
+      _.each(docs, (doc, index) => {
+        itemBuilder.addItem(undefined, `${index}`, makePlainText(doc.title))
+      });
+
+      let templateBuilder = new Alexa.templateBuilders.ListTemplate1Builder();
+      let template = templateBuilder.setListItems(itemBuilder.build()).setTitle('Topics found').build();
+      template.hasDisplaySpeechOutput = true;
+      template.speech = 'I have these options, which one would you like me to choose? ';
+      template.hasDisplayRepromptText = true;
+      template.askOrTell = 'ask';
+      template.templateToken = 'MultipleChoiceListView';
+      template.hint = 'Choose one of these';
+
+      this.response.listen('I have these options, which one would you like me to choose? ')
+        .renderTemplate(template);
+
+      //this.response.playVideo('https://s2.content.video.llnw.net/smedia/1462487a0ed04e85a5f4f26ea88f9aba/1h/J6SXM6tbMOKLCAwhp0O9IIG2Erayhn7KKsGfF827E/18z_cv-11_powerwindows.mp4');
+
+      this.emit(':responseReady');
+
     }
 
   },
@@ -244,7 +267,7 @@ function processDiagnosticHandler(self) {
 }
 
 var startStateHandlers = Alexa.CreateStateHandler(STATE_MACHINE.START, {
-  'WhereAreYouIntent': function() {
+  'DebugIntent': function() {
     this.emit(':ask', 'I am at start machine handler');
   },
 
